@@ -13,7 +13,8 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
             var sut = new ServiceRequest();
             var initialiseActionParameters = new MariaDb.Variant0.MariaDb_1_0_0.InitialiseActionParameters
             {
-                Name = "arbitaryDbName"
+                Name = "arbitaryDbName",
+                CpuCount = 32.ToString(),
             };
             var parameters = AttributeConverter.Convert(initialiseActionParameters);
 

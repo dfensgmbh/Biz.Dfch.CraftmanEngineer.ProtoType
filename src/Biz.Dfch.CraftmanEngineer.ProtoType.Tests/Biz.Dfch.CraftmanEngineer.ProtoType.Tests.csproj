@@ -77,7 +77,6 @@
     <Compile Include="MsSqlServerDbms.cs" />
     <Compile Include="ServiceRequestTest.cs" />
     <Compile Include="VirtualMachine.Variant0.VirtualMachine_1_0_0.InitialiseActionTest.cs" />
-    <Compile Include="MasterWorkflowTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
