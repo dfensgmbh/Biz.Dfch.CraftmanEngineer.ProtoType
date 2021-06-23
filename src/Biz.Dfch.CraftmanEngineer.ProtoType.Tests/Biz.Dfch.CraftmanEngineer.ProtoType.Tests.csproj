@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.props" Condition="Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.props')" />
   <Import Project="..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,21 +40,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="biz.dfch.CS.Appclusive.Public, Version=3.29.0.31020, Culture=neutral, PublicKeyToken=30acc2f3d5961f2d, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\biz.dfch.CS.Appclusive.Public.3.29.0\lib\biz.dfch.CS.Appclusive.Public.dll</HintPath>
+    </Reference>
+    <Reference Include="biz.dfch.CS.Commons, Version=1.12.0.28845, Culture=neutral, PublicKeyToken=ddc350d26de1d0d9, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\biz.dfch.CS.Commons.1.12.0\lib\net46\biz.dfch.CS.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="biz.dfch.CS.Testing, Version=2.1.1.28499, Culture=neutral, PublicKeyToken=ddc350d26de1d0d9, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\biz.dfch.CS.Testing.2.1.1\lib\biz.dfch.CS.Testing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\System.ComponentModel.Annotations.4.3.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\Microsoft.PowerShell.5.ReferenceAssemblies.1.1.0\lib\net4\System.Management.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\biz.dfch.CS.Appclusive.Public.3.29.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="MsSqlServerDbms.cs" />
+    <Compile Include="ServiceRequestTest.cs" />
+    <Compile Include="VirtualMachine.Variant0.VirtualMachine_1_0_0.InitialiseActionTest.cs" />
+    <Compile Include="MasterWorkflowTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biz.Dfch.CraftmanEngineer.ProtoType\Biz.Dfch.CraftmanEngineer.ProtoType.csproj">
+      <Project>{e6df5760-5c25-4407-8a36-5c8b45e939ce}</Project>
+      <Name>Biz.Dfch.CraftmanEngineer.ProtoType</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -63,6 +98,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.props'))" />
+    <Error Condition="!Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.targets'))" />
   </Target>
   <Import Project="..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.targets" Condition="Exists('..\Biz.Dfch.CraftmanEngineer.ProtoType\packages\CodeContracts.MSBuild.1.12.0\build\CodeContracts.MSBuild.targets')" />
 </Project>
