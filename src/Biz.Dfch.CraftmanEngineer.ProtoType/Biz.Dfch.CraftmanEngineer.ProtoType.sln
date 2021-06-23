@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biz.Dfch.CraftmanEngineer.ProtoType", "Biz.Dfch.CraftmanEngineer.ProtoType.csproj", "{E6DF5760-5C25-4407-8A36-5C8B45E939CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biz.Dfch.CraftmanEngineer.ProtoType.Tests", "..\Biz.Dfch.CraftmanEngineer.ProtoType.Tests\Biz.Dfch.CraftmanEngineer.ProtoType.Tests.csproj", "{CD2CFFF0-12D1-42CF-9304-A54BCE0FAF76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6DF5760-5C25-4407-8A36-5C8B45E939CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DF5760-5C25-4407-8A36-5C8B45E939CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DF5760-5C25-4407-8A36-5C8B45E939CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DF5760-5C25-4407-8A36-5C8B45E939CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD2CFFF0-12D1-42CF-9304-A54BCE0FAF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD2CFFF0-12D1-42CF-9304-A54BCE0FAF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD2CFFF0-12D1-42CF-9304-A54BCE0FAF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD2CFFF0-12D1-42CF-9304-A54BCE0FAF76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A1A21A2-4B2B-47CD-8345-A40AA325C14D}
+	EndGlobalSection
+EndGlobal
