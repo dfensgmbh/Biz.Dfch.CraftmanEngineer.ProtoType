@@ -68,5 +68,41 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
                 Assert.AreEqual(expectedEntry.Value, entryToBeAsserted.Value);
             }
         }
+
+        [TestMethod]
+        public void ConvertDictionaryParametersToInitialiseActionParametersSucceeds()
+        {
+            // Arrange
+            var expectedActionParameters =
+                new MariaDb.Variant0.MariaDb_1_0_0.InitialiseActionParameters
+                {
+                    CpuCount = 8.ToString(),
+                    DatabaseInGb = 256.ToString(),
+                    LogInGb = 128.ToString(),
+                    Name = "arbitraryName",
+                    Description = "arbitraryDescription"
+                };
+
+            var dictionary = new Dictionary<string, object>
+            {
+                {MariaDbModelName+dot+nameof(expectedActionParameters.Name), expectedActionParameters.Name},
+                {MariaDbModelName+dot+nameof(expectedActionParameters.Description), expectedActionParameters.Description},
+                {MariaDbModelName+dot+nameof(expectedActionParameters.DatabaseInGb), expectedActionParameters.DatabaseInGb},
+                {MariaDbModelName+dot+nameof(expectedActionParameters.LogInGb), expectedActionParameters.LogInGb},
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.CpuCount), expectedActionParameters.CpuCount},
+            };
+            var dictionaryParameters = new DictionaryParameters(dictionary);
+
+            // Act
+            var result = AttributeConverter.Convert(typeof(MariaDb.Variant0.MariaDb_1_0_0.InitialiseActionParameters), dictionaryParameters) as MariaDb.Variant0.MariaDb_1_0_0.InitialiseActionParameters;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedActionParameters.Name, result.Name);
+            Assert.AreEqual(expectedActionParameters.Description, result.Description);
+            Assert.AreEqual(expectedActionParameters.DatabaseInGb, result.DatabaseInGb);
+            Assert.AreEqual(expectedActionParameters.LogInGb, result.LogInGb);
+            Assert.AreEqual(expectedActionParameters.CpuCount, result.CpuCount);
+        }
     }
 }
