@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributeConverterTest.cs" />
     <Compile Include="ExecutionContextTest.cs" />
     <Compile Include="MsSqlServerDbms.cs" />
     <Compile Include="ServiceRequestTest.cs" />
