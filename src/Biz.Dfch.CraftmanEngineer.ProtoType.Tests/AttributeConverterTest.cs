@@ -70,7 +70,7 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
         }
 
         [TestMethod]
-        public void ConvertDictionaryParametersToInitialiseActionParametersSucceeds()
+        public void ConvertDictionaryParametersToMariaDbInitialiseActionParametersSucceeds()
         {
             // Arrange
             var expectedActionParameters =
@@ -102,6 +102,42 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
             Assert.AreEqual(expectedActionParameters.Description, result.Description);
             Assert.AreEqual(expectedActionParameters.DatabaseInGb, result.DatabaseInGb);
             Assert.AreEqual(expectedActionParameters.LogInGb, result.LogInGb);
+            Assert.AreEqual(expectedActionParameters.CpuCount, result.CpuCount);
+        }
+
+        [TestMethod]
+        public void ConvertDictionaryParametersToVirtualMachineInitialiseActionParametersSucceeds()
+        {
+            // Arrange
+            var expectedActionParameters =
+                new VirtualMachine.Variant0.VirtualMachine_1_0_0.InitialiseActionParameters
+                {
+                    CpuCount = 8.ToString(),
+                    DiskInGb = 256.ToString(),
+                    MemoryInGb = 128.ToString(),
+                    Name = "arbitraryName",
+                    Description = "arbitraryDescription"
+                };
+
+            var dictionary = new Dictionary<string, object>
+            {
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.Name), expectedActionParameters.Name},
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.Description), expectedActionParameters.Description},
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.DiskInGb), expectedActionParameters.DiskInGb},
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.MemoryInGb), expectedActionParameters.MemoryInGb},
+                {VirtualMachineModelName+dot+nameof(expectedActionParameters.CpuCount), expectedActionParameters.CpuCount},
+            };
+            var dictionaryParameters = new DictionaryParameters(dictionary);
+
+            // Act
+            var result = AttributeConverter.Convert(typeof(VirtualMachine.Variant0.VirtualMachine_1_0_0.InitialiseActionParameters), dictionaryParameters) as VirtualMachine.Variant0.VirtualMachine_1_0_0.InitialiseActionParameters;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedActionParameters.Name, result.Name);
+            Assert.AreEqual(expectedActionParameters.Description, result.Description);
+            Assert.AreEqual(expectedActionParameters.DiskInGb, result.DiskInGb);
+            Assert.AreEqual(expectedActionParameters.MemoryInGb, result.MemoryInGb);
             Assert.AreEqual(expectedActionParameters.CpuCount, result.CpuCount);
         }
     }
