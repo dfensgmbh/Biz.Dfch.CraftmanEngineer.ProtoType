@@ -16,6 +16,7 @@
 
 using System;
 using System.Linq;
+using biz.dfch.CS.Testing.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Net.Appclusive.Public.Engine;
 
@@ -161,5 +162,22 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
         //
         //    // Assert
         //}
+        [DataTestMethod]
+        [DataRow("")]
+        [DataRow(" ")]
+        [DataRow(null)]
+        [ExpectContractFailure]
+        public void InvokeViaSimplifiedMethodParametersWithInvalidParametersThrowsContractAssertion(string invalidParameters)
+        {
+            // Arrange
+            var sut = new ExecutionContext();
+            var arbitraryModelName = "arbitraryName";
+            var arbitraryModelAction = "InitialiseAction";
+
+            // Act
+            var result = sut.Invoke(arbitraryModelName, arbitraryModelAction, invalidParameters);
+
+            // Assert
+        }
     }
 }
