@@ -127,41 +127,44 @@ namespace Biz.Dfch.CraftmanEngineer.ProtoType.Tests
             Assert.IsTrue(result);
         }
 
-        //[DataTestMethod]
-        //[DataRow("")]
-        //[DataRow(" ")]
-        //[DataRow(null)]
-        //public void InvokeMariaDbViaSimplifiedMethodParametersWithInvalidModelNameThrowsContractAssertion(string invalidModelName)
-        //{
-        //    // Arrange
-        //    var sut = new ExecutionContext();
-        //    var arbitraryModelAction = "InitialiseAction";
-        //
-        //    var arbitraryParameters = AttributeConverter.Convert(testMariaDbInitialiseActionParameters).SerializeObject();
-        //
-        //    // Act
-        //    var result = sut.Invoke(invalidModelName, arbitraryModelAction, arbitraryParameters);
-        //
-        //    // Assert
-        //}
+        [DataTestMethod]
+        [DataRow("")]
+        [DataRow(" ")]
+        [DataRow(null)]
+        [ExpectContractFailure]
+        public void InvokeViaSimplifiedMethodParametersWithInvalidModelNameThrowsContractAssertion(string invalidModelName)
+        {
+            // Arrange
+            var sut = new ExecutionContext();
+            var arbitraryModelAction = "InitialiseAction";
+        
+            var arbitraryParameters = AttributeConverter.Convert(testMariaDbInitialiseActionParameters).SerializeObject();
+        
+            // Act
+            var result = sut.Invoke(invalidModelName, arbitraryModelAction, arbitraryParameters);
+        
+            // Assert
+        }
 
-        //[DataTestMethod]
-        //[DataRow("")]
-        //[DataRow(" ")]
-        //[DataRow(null)]
-        //public void InvokeMariaDbViaSimplifiedMethodParametersWithInvalidModelNameThrowsContractAssertion(string invalidModelName)
-        //{
-        //    // Arrange
-        //    var sut = new ExecutionContext();
-        //    var arbitraryModelAction = "InitialiseAction";
-        //
-        //    var arbitraryParameters = AttributeConverter.Convert(testMariaDbInitialiseActionParameters).SerializeObject();
-        //
-        //    // Act
-        //    var result = sut.Invoke(invalidModelName, arbitraryModelAction, arbitraryParameters);
-        //
-        //    // Assert
-        //}
+        [DataTestMethod]
+        [DataRow("")]
+        [DataRow(" ")]
+        [DataRow(null)]
+        [ExpectedContractException]
+        public void InvokeViaSimplifiedMethodParametersWithInvalidModelActionThrowsContractAssertion(string invalidModelAction)
+        {
+            // Arrange
+            var sut = new ExecutionContext();
+            var arbitraryModelName = "arbitraryName";
+        
+            var arbitraryParameters = AttributeConverter.Convert(testVirtualMachineInitialiseActionParameters).SerializeObject();
+        
+            // Act
+            var result = sut.Invoke(arbitraryModelName, invalidModelAction, arbitraryParameters);
+        
+            // Assert
+        }
+
         [DataTestMethod]
         [DataRow("")]
         [DataRow(" ")]
